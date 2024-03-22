@@ -1,0 +1,36 @@
+{
+  "name": "template-storybook",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@storybook/addon-mdx-gfm": "^8.0.4",
+    "@storybook/test": "^8.0.4",
+    "@types/node": "20.4.4",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "eslint": "8.45.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "^6.0.5",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.0.4",
+    "@storybook/addon-interactions": "^8.0.4",
+    "@storybook/addon-links": "^8.0.4",
+    "@storybook/addon-onboarding": "^8.0.4",
+    "@storybook/blocks": "^8.0.4",
+    "@storybook/nextjs": "^8.0.4",
+    "@storybook/react": "^8.0.4",
+    "eslint-plugin-storybook": "^0.6.13",
+    "prettier": "^3.0.0",
+    "storybook": "^8.0.4"
+  },
+  "prettier": {
+    "proseWrap": "always"
+  }
+}

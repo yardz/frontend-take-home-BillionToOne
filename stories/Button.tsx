@@ -19,7 +19,7 @@ interface ButtonProps {
   /**
    * Button contents
    */
-  label: string;
+  label: string | JSX.Element;
   /**
    * Optional click handler
    */
@@ -30,7 +30,7 @@ const getVariantStyles = ({ primary = false }) =>
   primary
     ? css`
         color: white;
-        background-color: #1ea7fd;
+        background-color: #4f46e5;
       `
     : css`
         color: #333;
@@ -65,13 +65,16 @@ const getSizeStyles = ({ size = "medium" }: { size?: Sizes }) => {
  * Primary UI component for user interaction
  */
 const StyledButton = styled.button<Omit<ButtonProps, "label">>`
-  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: 0;
-  border-radius: 3em;
+  border-radius: 8px;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
+
+  font-family: Inter;
+  letter-spacing: -0.01em;
+  text-align: left;
 
   ${(props) => getVariantStyles(props)}
   ${(props) => getSizeStyles(props)}
@@ -82,6 +85,19 @@ const StyledButton = styled.button<Omit<ButtonProps, "label">>`
     `}
 `;
 
-export const Button = ({ label, ...rest }: ButtonProps) => (
-  <StyledButton {...rest}>{label}</StyledButton>
-);
+const StyledButtonContent = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+`;
+
+export const Button = ({ label, ...rest }: ButtonProps) => {
+  let content =
+    typeof label === "string" ? (
+      label
+    ) : (
+      <StyledButtonContent>{label}</StyledButtonContent>
+    );
+  return <StyledButton {...rest}>{content}</StyledButton>;
+};
